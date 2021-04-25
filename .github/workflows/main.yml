@@ -16,9 +16,9 @@ jobs:
     - name: Checkout current repository
       shell: pwsh
       run: |
-        Write-Outpu "There were sdsdfgs 456564536"
-        Write-Outpu $Env:GITHUB_REF
-        Write-Outpu $Env:GITHUB_REPOSITORY
+        Write-Output "There were sdsdfgs 456564536"
+        Write-Output $Env:GITHUB_REF
+        Write-Output $Env:GITHUB_REPOSITORY
     
     # sets up .NET Core SDK
     - name: Setup .NET Core SDK
