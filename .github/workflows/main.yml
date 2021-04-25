@@ -13,6 +13,13 @@ jobs:
     # uses GitHub's checkout action to checkout code form the master branch
     - uses: actions/checkout@v2
     
+    - name: Checkout current repository
+      shell: pwsh
+      run: |
+        Write-Outpu "There were sdsdfgs 456564536"
+        Write-Outpu $Env:GITHUB_REF
+        Write-Outpu $Env:GITHUB_REPOSITORY
+    
     # sets up .NET Core SDK
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
