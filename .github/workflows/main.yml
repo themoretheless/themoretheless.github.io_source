@@ -17,7 +17,12 @@ jobs:
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.100-preview.3.21202.5        
+        dotnet-version: 6.0.100-preview.3.21202.5
+        
+    - name: Install PSScriptAnalyzer module
+      shell: pwsh
+      run: |
+           Write-Error "There were sdsdfgs 456564536"
 
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
@@ -30,10 +35,3 @@ jobs:
     # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
     - name: Add .nojekyll file
       run: touch release/wwwroot/.nojekyll
-      
-    - name: Commit wwwroot to GitHub Pages
-      uses: themoretheless/themoretheless.github.io_source
-      with:      
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: release/wwwroot
