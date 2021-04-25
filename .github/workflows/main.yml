@@ -16,7 +16,7 @@ jobs:
     - name: Checkout current repository
       shell: pwsh
       run: |
-        git checkout Env:GITHUB_REPOSITORY
+        git checkout $Env:GITHUB_REPOSITORY
     
     # sets up .NET Core SDK
     - name: Setup .NET Core SDK
