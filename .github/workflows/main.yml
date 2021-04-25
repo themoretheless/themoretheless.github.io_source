@@ -17,16 +17,16 @@ jobs:
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.100-preview.3.21202.5
-        
-    - name: Install PSScriptAnalyzer module
-      shell: pwsh
-      run: |
-           Write-Output "There were sdsdfgs 456564536"
+        dotnet-version: 6.0.100-preview.3.21202.5      
 
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
-      run: dotnet publish src/themoretheless.github.io_source/themoretheless.github.io_source.csproj -c Release -o release --nologo  
+      run: dotnet publish src/themoretheless.github.io_source/themoretheless.github.io_source.csproj -c Release -o release --nologo
+      
+    - name: Install PSScriptAnalyzer module
+      shell: pwsh
+      run: |
+           dir; Write-Output "There were sdsdfgs 456564536"
     
     # copy index.html to 404.html to serve the same file when a file is not found
     - name: copy index.html to 404.html
