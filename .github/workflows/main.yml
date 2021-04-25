@@ -22,7 +22,7 @@ jobs:
     - name: Install PSScriptAnalyzer module
       shell: pwsh
       run: |
-           Write-Error "There were sdsdfgs 456564536"
+           Write-Output "There were sdsdfgs 456564536"
 
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
