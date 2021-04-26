@@ -15,7 +15,7 @@ jobs:
       run: |
         Write-Output $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY
         git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY
-        git checkout develop
+        #git checkout develop
     
     # sets up .NET Core SDK
     - name: Setup .NET Core SDK
