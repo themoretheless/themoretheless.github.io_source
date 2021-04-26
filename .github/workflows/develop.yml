@@ -13,7 +13,8 @@ jobs:
     - name: Checkout current repository
       shell: pwsh
       run: |
-        Write-Host $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY        
+        Write-Output $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY
+        git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY
         git checkout develop
     
     # sets up .NET Core SDK
