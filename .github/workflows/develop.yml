@@ -13,11 +13,8 @@ jobs:
     - name: Checkout current repository
       shell: pwsh
       run: |
-        Write-Output $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY
         git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
-        dir     
-        git checkout develop
-        winget install Microsoft.dotnetPreview -h 
+        git checkout $Env:GITHUB_REF
     
     # sets up .NET Core SDK
     - name: Setup .NET Core SDK
