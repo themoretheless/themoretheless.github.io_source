@@ -17,7 +17,13 @@ jobs:
     - name: Checkout current repository
       shell: pwsh
       run: |
-        Set-Variable -Name actionPath -Value '/usr/action'
+        Set-Variable -Name actionPath -Value "/usr/action"
+
+
+        Write-Host 'sdfgdsfgdf'
+        Write-Host $Env:actionPath
+
+
         if(!(test-path $Env:actionPath))
         {
           New-Item -ItemType Directory -Force -Path $Env:actionPath
