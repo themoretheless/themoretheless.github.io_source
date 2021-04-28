@@ -13,10 +13,11 @@ jobs:
     - name: Checkout current repository
       shell: pwsh
       run: |
-        Get-Location | Write-Host
+        Get-Location
         git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
         git checkout $Env:GITHUB_HEAD_REF
         cd..
+        Get-Location
   
     # sets up .NET Core SDK
     - name: Setup .NET Core SDK
