@@ -14,11 +14,11 @@ jobs:
       shell: pwsh
       run: |
         Get-Location | Write-Host
-        md -Path $Env:GITHUB_REPOSITORY 
+        New-Item -ItemType Directory $Env:GITHUB_REPOSITORY | Write-Host       
         Get-Location | Write-Host
         git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
         git checkout $Env:GITHUB_HEAD_REF
-    
+  
     # sets up .NET Core SDK
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
