@@ -8,7 +8,7 @@ on:
 jobs:
   deploy-to-github-pages:
     # use ubuntu-latest image to run steps on
-    runs-on: self-host
+    runs-on: ubuntu-latest
     defaults:
       run:        
         working-directory: /usr
@@ -21,7 +21,7 @@ jobs:
         Write-Host $Env:actionPath
         if(!(test-path $Env:actionPath))
         {
-          New-Item -ItemType Directory -Force -Path $Env:actionPath
+          New-Item -ItemType Directory -Path $Env:actionPath
         }
         ls
         Get-Location | Write-Host
