@@ -13,7 +13,8 @@ jobs:
     - name: Checkout current repository
       shell: pwsh
       run: |
-        git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY
+        md -Path $Env:GITHUB_REPOSITOR
+        git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
         git checkout $Env:GITHUB_HEAD_REF
     
     # sets up .NET Core SDK
@@ -30,6 +31,8 @@ jobs:
       shell: pwsh
       run: |
            dir 
+
+
     
     # copy index.html to 404.html to serve the same file when a file is not found
     - name: copy index.html to 404.html
