@@ -34,12 +34,12 @@ jobs:
 
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
-      run: dotnet publish $Env:GITHUB_REPOSITORY/src/themoretheless.github.io_source/themoretheless.github.io_source.csproj -c Release -o release --nologo
+      run: dotnet publish src/themoretheless.github.io_source/themoretheless.github.io_source.csproj -c Release -o release --nologo
       
     - name: Install PSScriptAnalyzer module
       shell: pwsh
       run: |
-           ls 
+           ls
     
     # copy index.html to 404.html to serve the same file when a file is not found
     - name: copy index.html to 404.html
