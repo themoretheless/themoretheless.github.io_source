@@ -13,6 +13,7 @@ jobs:
     - name: Checkout current repository
       shell: pwsh
       run: |
+        Set-Location '/home/runner/work/'
         Get-Location | Write-Host
         git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
         git checkout $Env:GITHUB_HEAD_REF
