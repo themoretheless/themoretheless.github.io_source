@@ -10,13 +10,19 @@ jobs:
     # use ubuntu-latest image to run steps on
     runs-on: ubuntu-latest
     defaults:
-      run:
-        working-directory: /usr/bin
-      
+      run:        
+        working-directory: /usr
+
     steps:
     - name: Checkout current repository
       shell: pwsh
       run: |
+        Set-Variable -Name actionPath -Value '/usr/action'
+        if(!(test-path $Env:actionPath))
+        {
+          New-Item -ItemType Directory -Force -Path $Env:actionPath
+        }
+
         ls
         Get-Location | Write-Host
         git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
