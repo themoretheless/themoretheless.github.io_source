@@ -13,7 +13,7 @@ jobs:
     - name: Checkout current repository
       shell: pwsh
       run: |
-        git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
+        git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY
         git checkout $Env:GITHUB_HEAD_REF
     
     # sets up .NET Core SDK
@@ -24,12 +24,12 @@ jobs:
 
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
-      run: dotnet publish src/themoretheless.github.io_source/themoretheless.github.io_source.csproj -c Release -o release --nologo
+      run: dotnet publish $Env:GITHUB_REPOSITORY/src/themoretheless.github.io_source/themoretheless.github.io_source.csproj -c Release -o release --nologo
       
     - name: Install PSScriptAnalyzer module
       shell: pwsh
       run: |
-           dir; Write-Output "There were sdsdfgs 456564536"
+           dir 
     
     # copy index.html to 404.html to serve the same file when a file is not found
     - name: copy index.html to 404.html
