@@ -13,8 +13,9 @@ jobs:
     - name: Checkout current repository
       shell: pwsh
       run: |
+        Get-Location | Write-Host
         md -Path $Env:GITHUB_REPOSITORY 
-        Get-Location
+        Get-Location | Write-Host
         git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
         git checkout $Env:GITHUB_HEAD_REF
     
