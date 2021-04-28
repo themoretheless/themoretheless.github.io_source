@@ -14,7 +14,8 @@ jobs:
       shell: pwsh
       run: |
         md -Path $Env:GITHUB_REPOSITORY
-        cd $Env:GITHUB_REPOSITORY
+        cd '$Env:GITHUB_REPOSITORY'
+        dir
         git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
         git checkout $Env:GITHUB_HEAD_REF
     
