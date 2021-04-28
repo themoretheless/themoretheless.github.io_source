@@ -12,12 +12,12 @@ jobs:
     defaults:
       run:
         working-directory: ./app
-        Get-Location | Write-Host
-
+      
     steps:
     - name: Checkout current repository
       shell: pwsh
-      run: |    
+      run: |
+        ls
         Get-Location | Write-Host
         git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
         git checkout $Env:GITHUB_HEAD_REF
