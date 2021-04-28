@@ -11,13 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:        
-        working-directory: /usr
+        working-directory: /usr/bin
 
     steps:
     - name: Checkout current repository
       shell: pwsh
       run: |
-        Set-Item -Path Env:actionPath -Value "/usr/action"
+        Set-Item -Path Env:actionPath -Value "/usr/bin/action"
         Write-Host $Env:actionPath
         if(!(test-path $Env:actionPath))
         {
