@@ -23,12 +23,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.100-preview.3.21202.5
-        
+
     - name: Checkout current repository
       shell: pwsh
       run: |
        dir
-       Write-Host $Env:GITHUB_REPOSITORY/src/themoretheless.github.io_source/themoretheless.github.io_source.csproj -c Release -o release --nologo
+       Write-Host $Env:GITHUB_REPOSITORY/src/themoretheless.github.io_source/themoretheless.github.io_source.csproj
       
 
 
