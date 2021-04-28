@@ -14,38 +14,4 @@ jobs:
       shell: pwsh
       run: |    
         Get-Location | Write-Host
-        git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
-        git checkout $Env:GITHUB_HEAD_REF
-        cd..
-        Get-Location | Write-Host
-  
-    # sets up .NET Core SDK
-    - name: Setup .NET Core SDK
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 6.0.100-preview.3.21202.5
-
-    - name: Checkout current repository
-      shell: pwsh
-      run: |
-       ls
-       Write-Host $Env:GITHUB_REPOSITORY/src/themoretheless.github.io_source/themoretheless.github.io_source.csproj
-      
-
-
-    # publishes Blazor project to the release-folder
-    - name: Publish .NET Core Project
-      run: dotnet publish src/themoretheless.github.io_source/themoretheless.github.io_source.csproj -c Release -o release --nologo
-      
-    - name: Install PSScriptAnalyzer module
-      shell: pwsh
-      run: |
-           ls
-    
-    # copy index.html to 404.html to serve the same file when a file is not found
-    - name: copy index.html to 404.html
-      run: cp release/wwwroot/index.html release/wwwroot/404.html
-
-    # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
-    - name: Add .nojekyll file
-      run: touch release/wwwroot/.nojekyll
+       
