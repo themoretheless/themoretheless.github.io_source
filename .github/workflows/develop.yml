@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:        
-        working-directory: /home/runner/work/
+        working-directory: /home/runner/work/poi
 
     steps:
     - uses: actions/checkout@v2
@@ -20,7 +20,8 @@ jobs:
 
     - name: Checkout current repository2
       shell: pwsh
-      run: |     
+      run: |   
+        cd /home/runner/work/poi  
         Get-Location | Write-Host
         cd ..
         tree
