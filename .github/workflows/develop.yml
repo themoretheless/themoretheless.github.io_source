@@ -14,27 +14,15 @@ jobs:
         working-directory: /home/runner/work/
 
     steps:
-    - name: Checkout current repository
-      shell: pwsh
-      run: |
-        ls
-        Set-Item -Path Env:repoSourcePath -Value "/home/runner/work/$Env:GITHUB_REPOSITORY"
-        Write-Host $Env:actionPath
-        if(!(test-path $Env:repoSourcePath))
-        {
-          New-Item -ItemType Directory -Path $Env:repoSourcePath
-        }
-        cd $Env:repoSourcePath
-
-        Write-Host $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY
-        git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY /home/runner/work/fdg789789hdfgh
-    
+    - uses: actions/checkout@v2
+      with:
+        path: '.'
 
     - name: Checkout current repository2
       shell: pwsh
       run: |     
         Get-Location | Write-Host
-        cd ../..
+        cd ..
         tree
   
     # sets up .NET Core SDK
