@@ -13,22 +13,21 @@ jobs:
       run:        
         working-directory: /home/runner/work
 
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        path: '111'
-
-    - uses: actions/checkout@v2
-      with:
-        repository: 'themoretheless/Remember'
-        path: '222'
-
-    - name: Checkout current repository2
+    - name: Checkout current repository
       shell: pwsh
-      run: |     
+      run: |
+        ls
+        Set-Item -Path Env:actionPath -Value "/home/runner/work/action"
+        Write-Host $Env:actionPath
+        if(!(test-path $Env:actionPath))
+        {
+          New-Item -ItemType Directory -Path $Env:actionPath
+        }
+        cd $Env:actionPath
+
         Get-Location | Write-Host
-        cd ..
-        tree
+        git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
+        git checkout $Env:GITHUB_HEAD_REF
   
     # sets up .NET Core SDK
     - name: Setup .NET Core SDK
