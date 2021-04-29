@@ -21,10 +21,11 @@ jobs:
 
     - name: Checkout current repository
       shell: pwsh
-      run: |
-        cd..
+      run: |     
         Get-Location | Write-Host
-        ls     
+        ls
+        cd themoretheless.github.io_source
+        ls
   
     # sets up .NET Core SDK
     - name: Setup .NET Core SDK
