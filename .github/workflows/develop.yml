@@ -11,11 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:        
-        working-directory: /home/runner/work/poi
+        working-directory: /home/runner/work
 
     steps:
     - uses: actions/checkout@v2
       with:
+        path: '.'
+
+    - uses: actions/checkout@v2
+      with:
+        repository: 'https://github.com/themoretheless/Remember.git'
         path: '.'
 
     - name: Checkout current repository2
