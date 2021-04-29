@@ -35,9 +35,6 @@ jobs:
       with:
         dotnet-version: 6.0.100-preview.3.21202.5
 
-
-
-
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
       run: dotnet publish src/themoretheless.github.io_source/themoretheless.github.io_source.csproj -c Release -o release --nologo
