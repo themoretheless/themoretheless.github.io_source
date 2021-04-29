@@ -18,13 +18,13 @@ jobs:
       shell: pwsh
       run: |
         ls
-        Set-Item -Path Env:actionPath -Value "/home/runner/work"
+        Set-Item -Path Env:repoSourcePath -Value "/home/runner/work/$Env:GITHUB_REPOSITORY"
         Write-Host $Env:actionPath
-        if(!(test-path $Env:actionPath))
+        if(!(test-path $Env:repoSourcePath))
         {
-          New-Item -ItemType Directory -Path $Env:actionPath
+          New-Item -ItemType Directory -Path $Env:repoSourcePath
         }
-        cd $Env:actionPath
+        cd $Env:repoSourcePath
 
         Get-Location | Write-Host
         git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
