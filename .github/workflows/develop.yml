@@ -15,11 +15,22 @@ jobs:
 
     steps:
     - name: Checkout current repository
-      uses: actions/checkout@v2
-      with:
-        path: /home/runner/
+      shell: pwsh
+      run: |
+        ls
+        Set-Item -Path Env:actionPath -Value "/home/runner/work"
+        Write-Host $Env:actionPath
+        if(!(test-path $Env:actionPath))
+        {
+          New-Item -ItemType Directory -Path $Env:actionPath
+        }
+        cd $Env:actionPath
 
-    - name: Checkout current repository
+        Get-Location | Write-Host
+        git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
+        git checkout $Env:GITHUB_HEAD_REF
+
+    - name: Checkout current repository2
       shell: pwsh
       run: |     
         Get-Location | Write-Host
