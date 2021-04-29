@@ -13,27 +13,31 @@ jobs:
       run:        
         working-directory: /home/runner/work
 
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        path: '.'
+
+    - uses: actions/checkout@v2
+      with:
+        repository: 'themoretheless/Remember'
+        path: '.'
+
+    - name: Checkout current repository2
+      shell: pwsh
+      run: |   
+        cd /home/runner/work/
+        Get-Location | Write-Host
+        cd ..
+        tree
+  
     # sets up .NET Core SDK
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.100-preview.3.21202.5
 
-    - name: Checkout current repository
-      shell: pwsh
-      run: |
-        ls
-        Set-Item -Path Env:actionPath -Value "/home/runner/work/action"
-        Write-Host $Env:actionPath
-        if(!(test-path $Env:actionPath))
-        {
-          New-Item -ItemType Directory -Path $Env:actionPath
-        }
-        cd $Env:actionPath
 
-        Get-Location | Write-Host
-        git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
-        git checkout $Env:GITHUB_HEAD_REF
 
 
     # publishes Blazor project to the release-folder
