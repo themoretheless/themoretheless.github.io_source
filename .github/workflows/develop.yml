@@ -34,9 +34,7 @@ jobs:
       shell: pwsh
       run: |     
         Get-Location | Write-Host
-        ls
-        cd themoretheless.github.io_source
-        ls
+        tree
   
     # sets up .NET Core SDK
     - name: Setup .NET Core SDK
