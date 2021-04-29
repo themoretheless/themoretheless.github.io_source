@@ -17,7 +17,7 @@ jobs:
     - name: Checkout current repository
       uses: actions/checkout@v2
       with:
-        path: '.'
+        path: .
 
     - name: Checkout current repository
       shell: pwsh
