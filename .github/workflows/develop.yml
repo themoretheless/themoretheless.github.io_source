@@ -16,12 +16,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        path: '.'
+        path: '111'
 
     - uses: actions/checkout@v2
       with:
         repository: 'themoretheless/Remember'
-        path: '.'
+        path: '222'
 
     - name: Checkout current repository2
       shell: pwsh
