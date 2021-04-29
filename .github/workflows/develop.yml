@@ -26,7 +26,7 @@ jobs:
         }
         cd $Env:repoSourcePath
 
-        Get-Location | Write-Host
+        Write-Host $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY
         git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY .
     
 
