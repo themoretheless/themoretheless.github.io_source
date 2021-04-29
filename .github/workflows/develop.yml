@@ -11,11 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:        
-        working-directory: /home/runner/work/ 
+        working-directory: /home/runner/work/
 
     steps:
     - name: Checkout current repository
       uses: actions/checkout@v2
+      path: '.'
 
     - name: Checkout current repository
       shell: pwsh
