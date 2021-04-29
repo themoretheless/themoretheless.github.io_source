@@ -27,7 +27,7 @@ jobs:
         cd $Env:repoSourcePath
 
         Write-Host $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY
-        git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY $Env:repoSourcePath
+        git clone $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY /home/runner/work/fdghdfgh --progress
     
 
     - name: Checkout current repository2
